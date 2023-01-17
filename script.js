@@ -16,7 +16,7 @@ function imageMode(color) {
   image3.src = `img/undraw_conceptual_idea_${color}.svg`;
 }
 
-Further refactor darkMode() and lightMode()
+// Further refactor darkMode() and lightMode()
 function toggleMode(isDark) {
   nav.style.backgroundColor = isDark
     ? "rgb(0 0 0 / 50%)"
