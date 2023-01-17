@@ -54,11 +54,11 @@ function switchTheme(event) {
   if (event.target.checked) {
     document.documentElement.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
-    toggleMode(isDark);
+    toggleMode(true);
   } else {
     document.documentElement.setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");
-    toggleMode("light");
+    toggleMode(false);
   }
 }
 
@@ -72,6 +72,6 @@ if (currentTheme) {
 
   if (currentTheme === "dark") {
     toggleSwitch.checked = true;
-    toggleMode("light");
+    toggleMode(true);
   }
 }
