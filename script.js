@@ -6,6 +6,9 @@ const image2 = document.getElementById("image2");
 const image3 = document.getElementById("image3");
 const textBox = document.getElementById("text-box");
 
+const darkTheme = "dark";
+const lightTheme = "light";
+
 // Dark or Light Images
 function imageMode(color) {
   image1.src = `img/undraw_proud_coder_${color}.svg`;
@@ -25,7 +28,7 @@ function toggleDarkLightMode(isDark) {
   isDark
     ? toggleIcon.children[1].classList.replace("fa-sun", "fa-moon")
     : toggleIcon.children[1].classList.replace("fa-moon", "fa-sun");
-  isDark ? imageMode("dark") : imageMode("light");
+  isDark ? imageMode(darkTheme) : imageMode(lightTheme);
 }
 
 // // Dark Mode Styles
@@ -49,13 +52,13 @@ function toggleDarkLightMode(isDark) {
 // Switch Theme Dynamically
 function switchTheme(event) {
   if (event.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-    toggleDarkLightMode(true);
+    document.documentElement.setAttribute("data-theme", darkTheme);
+    localStorage.setItem("theme", darkTheme);
+    toggleDarkLightMode(darkTheme);
   } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-    toggleDarkLightMode(false);
+    document.documentElement.setAttribute("data-theme", lightTheme);
+    localStorage.setItem("theme", lightTheme);
+    toggleDarkLightMode(lightTheme);
   }
 }
 
@@ -67,8 +70,8 @@ const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  if (currentTheme === "dark") {
+  if (currentTheme === darkTheme) {
     toggleSwitch.checked = true;
-    toggleDarkLightMode(true);
+    toggleDarkLightMode(darkTheme);
   }
 }
